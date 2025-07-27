@@ -8,9 +8,9 @@ target = 9
 
 for i in range(len(nums)):
     buscado = target - nums[i]
-    print(target + " es la suma de " + nums[i] + " y " + buscado)
-    print("Buscando " + buscado + " en la lista...")
+    print(str(target) + " es la suma de " + str(nums[i]) + " y " + buscado)
+    print("Buscando " + str(buscado) + " en la lista...")
     for n in range(len(nums)):
         if buscado == nums[n]:
             suma = [nums[i], buscado]
-            print(suma)
+            print(str(suma))
