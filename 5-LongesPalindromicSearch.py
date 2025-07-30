@@ -1,17 +1,23 @@
 #Buscar el palíndromo más largo en una cadena
-texto = "patacas coseicha propia"
+texto = "patapcas coseicha propia"
 
 def buscarPalindromo(texto):
-    palindromo = ""
     maxPalindromo = ""
-    #caracteres = set()
 
-    for i in range(1, len(texto)):
-        if texto[i-1] == texto[i+1]:
-            palindromo += texto[i-1]
-            palindromo += texto[i]
-            palindromo += texto[i+1]
-            if palindromo > maxPalindromo:
+    for i in range(1, len(texto) - 1):
+        if texto[i - 1] == texto[i + 1]:
+            palindromo = texto[i]
+            izquierda = i - 1
+            derecha = i + 1
+
+            while izquierda >= 0 and derecha < len(texto) and texto[izquierda] == texto[derecha]:
+                palindromo = texto[izquierda] + palindromo + texto[derecha]
+                izquierda -= 1
+                derecha += 1
+
+            if len(palindromo) > len(maxPalindromo):
                 maxPalindromo = palindromo
-            return maxPalindromo
+
+    return maxPalindromo
+
 print(buscarPalindromo(texto))
