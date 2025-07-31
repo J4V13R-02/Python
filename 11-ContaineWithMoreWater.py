@@ -1,4 +1,10 @@
-columnas = [1,8,10,2,5,2,8,10,7]
+import random
+import numpy as np
+import matplotlib
+import matplotlib.pyplot as plt
+
+
+columnas = [random.randint(1, 10) for _ in range(10)]
 columna_a = ""
 columna_b = ""
 
@@ -18,5 +24,10 @@ def capacidad(columnas):
 
     return (str(max_deposito) + " formado por las columnas " + str(columna_a) + " y " + str(columna_b))
 
+print(str(columnas))
 print("La capacidad máxima es de " + capacidad(columnas))
+etiquetas = [f"{i}" for i in range(len(columnas))]
+plt.figure()
+plt.bar(etiquetas, columnas)
+plt.show()
                     
