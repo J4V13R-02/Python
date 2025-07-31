@@ -1,4 +1,5 @@
 numero = 2345
-
-def romanizer(numero):
-    for i in range(numero // 3):
+romano = ""
+def romanizar(numero, romano):
+    for i in range(numero // 1000):
+        romano += "M"
