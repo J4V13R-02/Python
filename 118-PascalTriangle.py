@@ -1,19 +1,20 @@
-try:
-    filas = int(input("Indique numero de filas: "))
-except ValueError:
-    print("Numero invalido")
+import pandas as pd
+while True:
+    try:
+        filas = int(input("Indique numero de filas: "))
+        break
+    except ValueError:
+        print("Numero invalido")
 
-triangulos = []
+triangulo = []
 
 def pascal(filas):
     f = [1]
     for fila in range(filas):
-        for i in range(len(f)):
-            if i+1 <= len(f):
-                f.append((f[i] + (f[i+1])))
-            else:
-                f.append((f[i]))
-        triangulos.append(list(f))
-    return triangulos
+        triangulo.append(f)
+        f = [1] + [f[i] + f[i+1] for i in range(len(f)-1)] + [1]
 
-print(pascal(filas))
+
+    return triangulo
+
+print(pd.DataFrame(pascal(filas)))
