@@ -1,23 +1,29 @@
 #Buscar el palíndromo más largo en una cadena
-texto = "patapcas coseicha propia"
+class Solution:
+    def longestPalindrome(s):
+        maxPalindromo = ""
+        longitud = 0
 
-def buscarPalindromo(texto):
-    maxPalindromo = ""
+        for i in range(len(s)):
+            #Impares
+            izq, der = i, i
+            while izq >= 0 and der < len(s) and s[izq] == s[der]:
+                if (der - izq + 1) > longitud:
+                    maxPalindromo = s[izq:der + 1]
+                    longitud = der - izq + 1
+                izq -= 1
+                der += 1
 
-    for i in range(1, len(texto) - 1):
-        if texto[i - 1] == texto[i + 1]:
-            palindromo = texto[i]
-            izquierda = i - 1
-            derecha = i + 1
+            #Pares
+            izq, der = i, i + 1
+            while izq >= 0 and der < len(s) and s[izq] == s[der]:
+                if (der - izq + 1) > longitud:
+                    maxPalindromo = s[izq:der + 1]
+                    longitud = der - izq + 1
+                izq -= 1
+                der += 1
 
-            while izquierda >= 0 and derecha < len(texto) and texto[izquierda] == texto[derecha]:
-                palindromo = texto[izquierda] + palindromo + texto[derecha]
-                izquierda -= 1
-                derecha += 1
+        return maxPalindromo
 
-            if len(palindromo) > len(maxPalindromo):
-                maxPalindromo = palindromo
-
-    return maxPalindromo
-
-print(buscarPalindromo(texto))
+    s = input("Inserte frase: ")
+    print(longestPalindrome(s))

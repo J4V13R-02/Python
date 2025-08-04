@@ -18,7 +18,7 @@ def suma(nums, diferencia_max):
                     for k in nums:
                         if k not in visto:
                             visto.add(k)
-                            diferencia = abs(objetivo - k)
+                            diferencia = (objetivo - k)
                             if diferencia < diferencia_max:
                                 diferencia_max = diferencia
                                 mejor = i + j + k
