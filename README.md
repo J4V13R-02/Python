@@ -1,1 +1,1 @@
-# Python
+# Programación dinámica en Python
